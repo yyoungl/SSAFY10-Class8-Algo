@@ -9,28 +9,47 @@
 
 
 ## 원격 저장소 추가
+개인 토큰 생성. 클래식으로 해야함.
+첫 push에서 이름과 비밀번호를 요구할 때 입력해야 하는 비밀번호는 깃헙 토큰비밀번호다. 깃헙 토큰은 클래식으로 만들어야한다.
+### 문제출제
 
-(선택 사항) 개인 컴퓨터 저장소에서 github을 연동하고 push하고 싶다면!
+---
 
-1. https://github.com/yyoungl/SSAFY10-Class8-Algo.git 복사하기
-2. 원하는 폴더에서 Git Bash Here
+금주 `수요일`까지 차주 풀 문제를 정한다. 매주 난이도를 고려하여 3~5문제를 결정한다.
+금주 토요일까지 각자 문제폴더`(20230728_B_2557)`, `20230728_B_2557.md`를 개인 브랜치에 올린다.
+일요일에 깃 담당자는 출제 문제를 메인 브랜치에 합병한다.
+### 문제출제 순서
+
+---
+
+개인 브랜치로 이동한다.
+개인 브랜치에서 main 브랜치를 pull 한다. (git pull origin main)
+문제폴더(20230728_B_2557), `20230728_B_2557.md`를 생성한다.
+md 파일에는 에는 문제 주소를 넣는다.
+개인 브랜치에서 add . => commit => push 한다.
+깃 담당자의 일요일 합병 순서
+
+메인 브랜치에서 브랜치 별로 합병한다.
 
 ```bash
-git remote add origin https://github.com/yyoungl/SSAFY10-Class8-Algo.git
+git merge feature/~~~
+git push
 ```
+
+### 문제 풀기
+
+---
+
+개인 브랜치로 이동한다.
+main 브랜치를 pull한다. (git pull origin main)
+정답이 들어있는 (gubeom_20230728_B_2557.java) 파일을 올린다.
+개인 브랜치를 add . => commit => push 한다.
+정답 합병
+
+문제 풀이가 있는 날 오전에 깃 담당자가 합병한다.
+메인 브랜치에서 브랜치 별로 합병한다.
 
 ```bash
-git branch -M main
+git merge feature/~~~
+git push
 ```
-
-```bash
-git branch (브랜치 목록 볼 수 있음, 현재 브랜치 표시)
-git branch feature/(이름) -> 개인 branch 생성
-git checkout 원하는브랜치이름 -> 입력한 브랜치로 이동
-```
-
-1. 이후 작업한 내용을 폴더 안에 넣고 commit, push하기
-
-하지만 실습 컴으로는 안 되는 것 같음 (SSAFY 깃랩 계정에 권한이 연결되어 있어서 설정 해제해야 하는 것 같습니다…)
-
-github 홈페이지나 프로그램에서 브랜치를 생성하고 파일을 직접 드래그해서 업로드하는 식으로도 커밋 할 수 있습니다.
