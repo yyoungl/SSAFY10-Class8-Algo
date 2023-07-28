@@ -36,7 +36,6 @@ git push
 
 ### 문제 풀기
 
----
 
 개인 브랜치로 이동한다.
 main 브랜치를 pull한다. (git pull origin main)
