@@ -41,10 +41,10 @@ public class damongsanga_20230804_B_9663 {
 
     // queen을 놓을 수 있는지 판단
     public static boolean queenable (int depth){
-
+        
         // 기본값 true로 설정
         boolean answer = true;
-
+        
         // 현재 깊이까지 queen을 놓을 수 있는지 판단
         for (int i = 0; i < depth; i++) {
             int diff = Math.abs(arr[depth] - arr[i]); // 현재 queen과 검사할 queen의 높이 차이
