@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="20230728_B_2557"/>
+	<classpathentry kind="src" path="20230802_P_소수 찾기"/>
+	<classpathentry kind="src" path="20230804_B_9663"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
