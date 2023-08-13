@@ -56,19 +56,26 @@ public class yyoungl_2023_0814_P_network {
 		return answer;
 		
 	}
-	
+	// start와 연결된 노드의 개수를 확인하는 Array
 	static int bfs(int start, ArrayList<Integer>[] graph) {
 		// 방문 여부를 확인하는 Array
 		boolean[] visited = new boolean[n+1];
 		Queue<Integer> q = new LinkedList<>();
+		// q에 시작 노드 넣고
 		q.offer(start);
 		visited[start] = true;
-		int cnt=1;
+		// 전력망에 연결된 노드 개수를 1로 초기화합니다
+		int cnt=1;	
 		while (!q.isEmpty()) {
+			// q 첫 번째 값을 꺼내서
 			int node = q.poll();
+			// graph에 담긴 node의 연결 정보를 하나씩 탐색 
 			for (int point: graph[node]) {
+				// 만약 그 노드에 방문하지 않았다면
 				if (!visited[point]) {
+					// 이후에 확인하기 위해 q에 넣고
 					q.offer(point);
+					// 방문값 바꿔주기
 					visited[point] = true;
 					cnt++;
 				}
