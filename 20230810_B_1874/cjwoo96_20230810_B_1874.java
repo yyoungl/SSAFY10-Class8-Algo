@@ -2,7 +2,7 @@ package practice_Git02;
 
 import java.util.Scanner;
 
-public class class03 {
+public class class03 {//
 
 	static int[][] arr;
 	static int[] dx= {0,0,-1};
