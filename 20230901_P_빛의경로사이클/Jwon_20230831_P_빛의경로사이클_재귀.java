@@ -9,6 +9,7 @@ public class Jwon_20230831_P_빛의경로사이클_재귀 {
 	static int[] dirX = { 0, 1, 0, -1 };
 	static Node[][] arr;
 
+	// 이건 똑같은 로직인데 재귀로 한 거.
 	public static int[] solution(String[] grid) {
 		int n = grid.length;
 		int m = grid[0].length();

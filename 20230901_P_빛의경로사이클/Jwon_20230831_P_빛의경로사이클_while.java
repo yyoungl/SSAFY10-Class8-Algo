@@ -9,6 +9,12 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 	static int[] dirX = { 0, 1, 0, -1 };
 	static Node[][] arr;
 
+	// 하나의 방향으로 빠져나간다면 하나의 방향으로 무조건 들어온다는 것은 자명하기 때문에 모든 노드의 빠져 나가는 부분만 확인해주도록 한다.
+	// 빠져나가는 방향과, 가지고 있는 빛의 굴절 방향을 저장해 놓은 Node를 만들어서 2차원 배열을 만든다.
+	// 계속 빛의 방향을 변경하며 빛이 이동하다가 한 번 갔던 방향을 만난다면 한 번 사이클 돈 것이기 때문에 그만둔다.
+	// 모든 방향으로 빠져나간다면 정답이 나온다.
+	// 나는 글을 되게 못 쓴다. 내가 봐도 뭐라는 지 모르겠네
+	
 	public static int[] solution(String[] grid) {
 		int n = grid.length;
 		int m = grid[0].length();
@@ -16,6 +22,9 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 		for (int i = 0; i < n; i++) {
 			String str = grid[i];
 			for (int j = 0; j < m; j++) {
+				// 빛이 어느 방향으로 빠져나갔다면 true를 해준다.
+				// 따라서 모든 방향이 false이다.
+				// 빛의 변경 방향을 저장해준다.
 				Node node = new Node(str.charAt(j));
 				arr[i][j] = node;
 			}
@@ -25,6 +34,7 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				for (int dir = 0; dir < 4; dir++) {
+					// 모든 노드와 모든 방향을 확인한다.
 					int temp = find(i,j,dir);
 					if(temp != 0) {
 						list.add(temp);
@@ -33,6 +43,7 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 			}
 		}
 		
+		// list를 오름차순 해준다.
 		Collections.sort(list);
 		int[] answer = new int[list.size()];
 		for(int i = 0 ; i < answer.length; i++) {
@@ -42,10 +53,13 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 	}
 
 	static private int find(int y, int x, int dir) {
+		// 한 사이클을 할 때 빛의 경로 갯수
 		int count = 0;
+		// 만약 갈려는 방향이 이미 간 곳이라면 어처피 같은 사이클을 돌 것이기 때문에 확인을 할 필요가 없다.
 		while(!arr[y][x].urld[dir]) {
-			
+			// 현재 방향으로 가기 때문에 true를 해준다.
 			arr[y][x].urld[dir] = true;
+			// 방향을 변경해준다.
 			if (arr[y][x].dir == 'R') {
 				dir++;
 				dir %= 4;
@@ -70,6 +84,8 @@ public class Jwon_20230831_P_빛의경로사이클_while {
 			if(nextX >= arr[y].length) {
 				nextX = 0;
 			}
+			
+			// 다음 y와 x를 변경해준다.
 			y = nextY;
 			x = nextX;
 			count++;
