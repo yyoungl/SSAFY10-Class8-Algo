@@ -57,7 +57,7 @@ public class P피로도 {
 				sequence[r] = i;
 				permutation(r + 1, check, sequence);
 				check[i] = false;
-			}
+			}   
 		}
 	}
 
