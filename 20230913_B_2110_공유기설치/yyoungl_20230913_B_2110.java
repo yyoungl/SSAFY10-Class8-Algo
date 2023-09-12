@@ -37,12 +37,16 @@ public class B2110 {
 
 	// 이진 탐색을 이용하여 mid 거리로 공유기를 설치했을 때, 설치된 공유기의 수 반환
 	public static int binary(int mid) {
+		// 냅다 1번에 설치
 		int cnt = 1;
 		int last = homes[0];
 		
 		for (int i=1; i<N; i++) {
+			// 길이를 확인 (마지막에 설치한 공유기를 바탕으로)
 			if (homes[i] - last >= mid) {
+				// 개수 올려주고, 만약에 거리를 만족하지 않는다면 설치 X
 				cnt++;
+				// 마지막에 설치한 공유기 초기화
 				last = homes[i];
 			}
 		}
