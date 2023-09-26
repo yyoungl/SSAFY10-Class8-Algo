@@ -12,26 +12,26 @@ public class B4195 {
 			friends = new HashMap<>();
 			cnt = new HashMap<>();
 			
-			// °ü°è¸¦ ¸Ê¿¡ ³Ö¾îÁÖ±â
-			// Å°: »ç¶÷, °ª: ºÎ¸ğ
+			// ê´€ê³„ë¥¼ ë§µì— ë„£ì–´ì£¼ê¸°
+			// í‚¤: ì‚¬ëŒ, ê°’: ë¶€ëª¨
 			for (int i=0; i<network; i++) {
 				String person1 = sc.next();
 				String person2 = sc.next();
 				
-				// ÁÁÀº ¸Ş¼­µå¸¦ ¾Ë¾Ò½À´Ï´Ù..
-				// ÀÏ´Ü º»ÀÎÀÇ ºÎ¸ğ¸¦ º»ÀÎÀ¸·Î ¼³Á¤ÇÏ±â
+				// ì¢‹ì€ ë©”ì„œë“œë¥¼ ì•Œì•˜ìŠµë‹ˆë‹¤..
+				// ì¼ë‹¨ ë³¸ì¸ì˜ ë¶€ëª¨ë¥¼ ë³¸ì¸ìœ¼ë¡œ ì„¤ì •í•˜ê¸°
 				friends.putIfAbsent(person1, person1);
 				friends.putIfAbsent(person2, person2);
 				
-				// ¹«¸®¿¡ ¼ÓÇÑ »ç¶÷µé ¼ö¸¦ ÃÊ±âÈ­ÇÏ´Â ¸Ê
+				// ë¬´ë¦¬ì— ì†í•œ ì‚¬ëŒë“¤ ìˆ˜ë¥¼ ì´ˆê¸°í™”í•˜ëŠ” ë§µ
 				cnt.putIfAbsent(person1, 1);
 				cnt.putIfAbsent(person2, 1);
 				
-				// personÀÇ ºÎ¸ğ Ã£°í
+				// personì˜ ë¶€ëª¨ ì°¾ê³ 
 				String parent1 = find(person1);
 				String parent2 = find(person2);
 				
-				// ÇÕÄ£´Ù .
+				// í•©ì¹œë‹¤ .
 				union(parent1, parent2);
 				
 				System.out.println(cnt.get(parent2));
@@ -54,7 +54,7 @@ public class B4195 {
 		if (person1.equals(person2)) return;
 		else {
 			friends.put(person1, person2);
-			// 1¹ø »ç¶÷ ¹«¸® ¼ıÀÚ + 2¹ø »ç¶÷ ¹«¸® ¼ıÀÚ
+			// 1ë²ˆ ì‚¬ëŒ ë¬´ë¦¬ ìˆ«ì + 2ë²ˆ ì‚¬ëŒ ë¬´ë¦¬ ìˆ«ì
 			cnt.put(person2, cnt.get(person2)+cnt.get(person1));
 		}
 	}
